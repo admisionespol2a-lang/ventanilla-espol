@@ -44,8 +44,11 @@
     .image-container img { width: 100%; max-width: 130px; height: auto; display: block; margin: 0 auto; }
 
     /* Estilos para las tortugas de la encuesta (escala de grises al estar inactivas, verde original al activarse) */
-    .tortugas-container { display: flex; justify-content: center; gap: 12px; margin: 10px 0; }
-    .tortuga-wrap { cursor: pointer; padding: 4px; display: inline-block; }
+    .tortugas-container { display: flex; justify-content: center; align-items: flex-start; gap: 4px; margin: 10px 0; }
+    .tortuga-wrap { cursor: pointer; padding: 4px 2px; display: flex; flex-direction: column; align-items: center; width: 64px; }
+    .tortuga-txt { margin-top: 4px; font-size: 10px; line-height: 1.2; color: #888; text-align: center; }
+    .tortuga-txt b { display: block; font-size: 12px; color: #555; }
+    .tortuga-wrap.activa .tortuga-txt, .tortuga-wrap.activa .tortuga-txt b { color: #1a3c6e; }
     
     .tortuga-img { 
         width: 38px; 
@@ -115,9 +118,9 @@
       <h2>Encuesta de Satisfacción</h2>
       
       <!-- Pregunta 1 -->
-      <div class="pregunta-item">
-        <div class="pregunta-titulo">1. ¿Te gusta participar de estas actividades?</div>
-        <div class="tortugas-container" id="grupo1">
+      <div class="pregunta-item" id="moldePregunta">
+        <div class="pregunta-titulo"></div>
+        <div class="tortugas-container">
           <span class="tortuga-wrap" data-v="1"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 1"></span>
           <span class="tortuga-wrap" data-v="2"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 2"></span>
           <span class="tortuga-wrap" data-v="3"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 3"></span>
@@ -125,20 +128,6 @@
           <span class="tortuga-wrap" data-v="5"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 5"></span>
         </div>
       </div>
-
-      <!-- Pregunta 2 -->
-      <div class="pregunta-item">
-        <div class="pregunta-titulo">2. ¿Cómo califica la atención recibida?</div>
-        <div class="tortugas-container" id="grupo2">
-          <span class="tortuga-wrap" data-v="1"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 1"></span>
-          <span class="tortuga-wrap" data-v="2"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 2"></span>
-          <span class="tortuga-wrap" data-v="3"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 3"></span>
-          <span class="tortuga-wrap" data-v="4"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 4"></span>
-          <span class="tortuga-wrap" data-v="5"><img class="tortuga-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8ElEQVRYhdWZwXHbMBBFnzW+S6nAcgVOB2DOPEQpgGOmgqgDMRVYHUQeFhDlwLPJCmxVELkDqwLngJUGogkSAGnJeSeLAMG/2MViAV+8vr7ykVFF8hmYAE9VnL/U20enl+SOKpIUeAQegFIVyaTe5/LUomyI2AiYmo+Nv2+AJZCa753dAAmRNXDl0H1Wf3DWEFJFEgElbuIBxvLOgbMZIPG8Bsaer0bmj3N6IMVfPMBCFclq/+OcBryJZw9uVZHM4YOn0Q4yVSST/9mAMTALSqOqSKbAHL2gboymDTqrrKo4f+oYZs1xng9hcuFTSojwDLh16L4BllWcr1rG+uv88WaunQ2QnXKJf+bYAVkV58uGMZfAD8/x9lRVnEdOa0DS1i/C0t4YuFNFspVd1yRDeyqEF3DIQiLeJWS6uAIexZMASHWZor3kQyXv0RpCqkgyYOE5uAvfzbUhninp9vAOva6y/QOrAVJzPPTT2cqXKs5L43tdRmyAqH4maAuhVT99nawlEwEgaXdu6bujQTxYDJA4da0QQxlTmyRbygXKJvFg90AWqsoTJeusC+um+MYAicX3nn2TxT4z1Wt9F5o8kPbTE8RSFUmJLi+8aKqFor5qAhjTXhdZQ+hggCqSGfB7QFFDsUOn10YupR6Zcnwb8JHY2jIQaA9Mga8nk+PPTVvjCJ0yfWuRU9KqbSQ7YER4Vfie7LDvzkCtFpI9ICW8Rh+Se2DeFv9gKeZ6HjSG4lOXeLCXEtNhtXhTuYgHuwHRcFqCUK5lRVMtNCPs6Dg0rYt3T5MHnF48AU5705EBMvt972oGwyWMDgbI6WjV85sbdPr7CXyj/96SdnU4pFG5LL3r8bFdFedH/wKSErmvR6+rON/aGs0Q6roK7MK7lh+CgwFyQ3CNDoEQsgH0mDyjby62bZ1sO/EUfX8/A/bXHWtgi94jJvIcaSvNKxJjnJAzxh9g3XLAP8LrcjcEMSJFGz1Bl8fP6Ml4Qk/ACxyiwIt/YYj5nvqEBvkAAAAASUVORK5CYII=" alt="Tortuga 5"></span>
-        </div>
-      </div>
-
-      <p style="color:#666; font-size:12px; margin:5px 0 15px 0; text-align: center;">1 = muy mala · 5 = excelente</p>
 
       <button id="btnEncuesta" onclick="enviarEncuesta()" disabled>Enviar</button>
       <div class="error" id="errorEncuesta"></div>
@@ -155,7 +144,19 @@
       return fetch(API + '?' + q, { cache: 'no-store' }).then(function (r) { return r.json(); });
     }
     let miFecha = null, miTurno = null, temporizador = null;
-    let calif1 = 0, calif2 = 0;
+    const PREGUNTAS = [
+      { texto: '1. ¿Qué tan fácil le resultó ingresar a la Ventanilla Virtual?',
+        etiquetas: ['Muy difícil', 'Difícil', 'Ni fácil ni difícil', 'Fácil', 'Muy fácil'] },
+      { texto: '2. ¿Qué tan adecuado fue el tiempo de espera desde que solicitó la atención hasta que fue atendido?',
+        etiquetas: ['Muy inadecuado', 'Inadecuado', 'Aceptable', 'Adecuado', 'Muy adecuado'] },
+      { texto: '3. ¿Qué tan clara le resultó la información proporcionada por el personal de la Ventanilla Virtual?',
+        etiquetas: ['Muy poco clara', 'Poco clara', 'Aceptablemente clara', 'Clara', 'Muy clara'] },
+      { texto: '4. ¿Qué tan probable es que recomiende la Ventanilla Virtual a otro usuario?',
+        etiquetas: ['Muy poco probable', 'Poco probable', 'Algo probable', 'Probable', 'Muy probable'] },
+      { texto: '5. ¿Qué tan satisfecho(a) se encuentra con el servicio recibido a través de la Ventanilla Virtual?',
+        etiquetas: ['Muy insatisfecho(a)', 'Insatisfecho(a)', 'Ni satisfecho(a) ni insatisfecho(a)', 'Satisfecho(a)', 'Muy satisfecho(a)'] }
+    ];
+    const calif = [0, 0, 0, 0, 0];
 
     document.addEventListener('keydown', e => { if (e.key === 'Enter') solicitar(); });
     document.getElementById('inCedula').addEventListener('input', function () {
@@ -234,47 +235,56 @@
       }, 10000);
     }
 
-    function configurarGrupo(grupoId, actualizarCalificacion) {
-      const contenedor = document.getElementById(grupoId);
-      const items = contenedor.querySelectorAll('.tortuga-wrap');
 
-      function pintar(n) {
-        items.forEach(e => {
-          e.classList.toggle('activa', Number(e.dataset.v) <= n);
-        });
-      }
+    function construirEncuesta() {
+      const molde = document.getElementById('moldePregunta');
+      PREGUNTAS.forEach(function (preg, i) {
+        const bloque = molde.cloneNode(true);
+        bloque.removeAttribute('id');
+        bloque.querySelector('.pregunta-titulo').textContent = preg.texto;
+        const items = bloque.querySelectorAll('.tortuga-wrap');
 
-      items.forEach(e => {
-        const val = Number(e.dataset.v);
-        e.addEventListener('mouseover', () => pintar(val));
-        e.addEventListener('mouseout', () => pintar(actualizarCalificacion()));
-        e.addEventListener('click', () => {
-          if (grupoId === 'grupo1') calif1 = val;
-          if (grupoId === 'grupo2') calif2 = val;
-          pintar(val);
-          verificarHabilitarBoton();
+        function pintar(n) {
+          items.forEach(function (e) { e.classList.toggle('activa', Number(e.dataset.v) <= n); });
+        }
+
+        items.forEach(function (e) {
+          const val = Number(e.dataset.v);
+          const txt = document.createElement('span');
+          txt.className = 'tortuga-txt';
+          txt.innerHTML = '<b>' + val + '</b>' + preg.etiquetas[val - 1];
+          e.appendChild(txt);
+
+          e.addEventListener('mouseover', function () { pintar(val); });
+          e.addEventListener('mouseout', function () { pintar(calif[i]); });
+          e.addEventListener('click', function () {
+            calif[i] = val;
+            pintar(val);
+            verificarHabilitarBoton();
+          });
         });
+
+        molde.parentNode.insertBefore(bloque, molde);
       });
+      molde.remove();
     }
-
-    configurarGrupo('grupo1', () => calif1);
-    configurarGrupo('grupo2', () => calif2);
-
-    function verificarHabilitarBoton() {
-      if (calif1 > 0 && calif2 > 0) {
+    construirEncuesta();
+    
+   function verificarHabilitarBoton() {
+      if (calif.every(function (n) { return n > 0; })) {
         document.getElementById('btnEncuesta').disabled = false;
       }
     }
 
     function enviarEncuesta() {
-      if (!calif1 || !calif2) return;
+      if (calif.some(function (n) { return !n; })) return;
       const btn = document.getElementById('btnEncuesta');
       const err = document.getElementById('errorEncuesta');
       err.textContent = '';
       btn.disabled = true;
       btn.textContent = 'Enviando...';
 
-     llamar('encuesta', { fecha: miFecha, turno: miTurno, participar: calif1, atencion: calif2 })
+    llamar('encuesta', { fecha: miFecha, turno: miTurno, p1: calif[0], p2: calif[1], p3: calif[2], p4: calif[3], p5: calif[4] })
         .then(function (r) {
           if (r && r.ok) {
             cerrarVideo();
