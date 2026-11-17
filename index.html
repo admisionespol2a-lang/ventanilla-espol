@@ -83,6 +83,11 @@
 </head>
 <body>
   <div class="card">
+    <div id="cerrada" style="display:none; text-align:center;">
+      <img src="cerrada.png" alt="Ventanilla cerrada" style="max-width:100%; width:260px; height:auto;">
+      <h2>Ventanilla virtual cerrada</h2>
+      <p>En este momento la ventanilla virtual no se encuentra en atención. Por favor, intente nuevamente más tarde.</p>
+    </div>
     <div id="login">
       <h2>Ventanilla en línea</h2>
       <div class="card-layout">
@@ -189,6 +194,7 @@
           if (!r.ok) {
             document.getElementById('login').style.display = 'block';
             error.textContent = r.mensaje;
+            if (r.cerrada) revisarVentanilla();
             return;
           }
           document.getElementById('nombre').textContent = r.nombre;
@@ -303,6 +309,20 @@
           err.textContent = 'Error: ' + e.message;
         });
     }
+    function revisarVentanilla() {
+      if (miTurno !== null) return;                                        // ya tiene turno: no se toca
+      if (document.getElementById('espera').style.display === 'block') return;   // está generando su turno
+      llamar('ventanilla', {})
+        .then(function (r) {
+          if (miTurno !== null || !r || !r.ok) return;
+          const abierta = !!r.abierta;
+          document.getElementById('cerrada').style.display = abierta ? 'none' : 'block';
+          document.getElementById('login').style.display = abierta ? 'block' : 'none';
+        })
+        .catch(function () {});
+    }
+    revisarVentanilla();
+    setInterval(revisarVentanilla, 15000);
   </script>
 </body>
 </html>
